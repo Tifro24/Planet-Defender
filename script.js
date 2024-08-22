@@ -1,5 +1,6 @@
 const canvas = document.getElementById('grid')
 const c = canvas.getContext("2d")
+const menu = document.querySelector('.menu')
 
 
 canvas.width = 1024
@@ -60,6 +61,42 @@ const char1 = new Char({
     
 })
 
+class Rocks extends Char{
+    constructor({position, velocity, width, height, color}){
+        super({position, velocity, width, height, color})
+    }
+
+    draw(){
+        c.fillStyle = this.color
+        c.fillRect(this.position.x, this.position.y, this.width, this.height)
+
+    }
+
+    update(){
+        this.draw()
+        this.position.y += this.velocity.y
+    }
+
+
+}
+
+const rock = new Rocks({
+    position:{
+        x: 50,
+        y: -40
+    },
+    velocity:{
+        y: 1
+    },
+    width: 27,
+    height: 27,
+    color: 'red'
+})
+
+
+
+
+
 let lastKey
 
 const keys = {
@@ -79,6 +116,8 @@ const keys = {
 }
 
 
+let gameStart = false
+
 
 function animate(){
     c.fillStyle = 'blue'
@@ -86,20 +125,31 @@ function animate(){
     c.fillStyle = 'red'
     c.fillRect(0,476,canvas.width,100)
     char1.update()
+    
     window.requestAnimationFrame(animate)
 
-    char1.velocity.x = 0
+if(gameStart){
+    movement() 
+    rock.update()
+}
 
+
+   
+
+    
+
+}
+
+animate()
+
+function movement(){
     if (keys.a.pressed && lastKey == 'a' || keys.AL.pressed && lastKey == 'AL'){
         char1.velocity.x = -4
     } else if (keys.d.pressed && lastKey == 'd'|| keys.AR.pressed && lastKey == 'AR'){
         char1.velocity.x = 4}
-
-    
-    
+    else  char1.velocity.x = 0
 }
 
-animate()
 
 
 
@@ -148,3 +198,17 @@ window.addEventListener('keyup', (event) =>{
     }
 console.log(event.key)
 })
+
+ displayMenu = () =>{
+    menu.style.display = 'block'
+ }
+
+setTimeout(displayMenu, 950)
+
+playClick = () =>{
+    menu.style.display = 'none'
+    console.log('playclicked')
+    gameStart = true
+}
+
+
