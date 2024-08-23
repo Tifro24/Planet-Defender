@@ -1,14 +1,144 @@
-canvas{
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Press Start 2P", system-ui;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.container{
     position: relative;
+    display: inline-block;
+    overflow: hidden;
 }
 
 .menu{
     position: absolute;
     top: 200px;
-    left: 500px;
+    left: 480px;
     display: none;
 }
 
 button{
     cursor: pointer;
+    padding: 5px;
+    background-color: red;
 }
+
+button:hover{
+    background-color: black;
+    color: red;
+}
+
+.healthContainer{
+    position: absolute;
+    display: none;
+    width: 25%;
+    padding: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.hpBorder{
+    position: relative;
+    width: 100%;
+    display: flex;
+    border: 2px solid white;
+    margin-top: 10px;
+    
+}
+
+#hpBg{
+    height: 20px;
+    background-color: red;
+    width: 100%;
+}
+
+#playerHp{
+    background-color: green;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.scoreCount{
+    position: absolute;
+    display: none;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 20px;
+    
+}
+
+.scoreCount p{
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.gameOver{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+   
+}
+
+#goText{
+    display: none;
+    width: 220px;
+    text-align: center;
+    padding-bottom: 100px;
+    color: rgb(244, 244, 244);
+    
+}
+
+canvas{
+    z-index: 0;
+}
+
+#title{
+    position: absolute;
+    font-size: 75px;
+    text-align: center;
+    padding-top: 10px;
+    background-color: grey;
+    overflow: hidden;
+    z-index: 5;
+}
+
+@keyframes slideUp {
+
+    from{
+        transform: translateY(0);
+        
+    }
+
+    to{
+        transform: translateY(-200px);
+        
+    }
+
+}
+
+.slideUp{
+    animation: slideUp 1s 1 ease-out both;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+    
+}
+
+
+

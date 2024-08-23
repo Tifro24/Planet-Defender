@@ -3,15 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
-    <title>Mysterians</title>
+    <title>Planet Defender</title>
 </head>
 <body>
-    <canvas id="grid"></canvas>
-    <div class="menu">
-        <button onclick="playClick()">Play</button>
+    <div class="container">
+        <div id="title">PLANET DEFENDER</div>
+        <div class="gameOver"><div id="goText">GAME OVER YOUR SCORE: 0</div></div>
+        <div class="scoreCount"><p id="scoreNum">SCORE: 0</p></div>
+        <div class="healthContainer"> PLANET HEALTH
+            <div class="hpBorder">
+                <div id="hpBg"></div>
+                <div id="playerHp"></div>
+            </div>
+            
+        </div>
+        <div class="menu">
+            <button onclick="playClick()">PLAY</button>
+        </div>
+        <canvas id="grid"></canvas>
     </div>
+    
+    
     
 </body>
 </html>
